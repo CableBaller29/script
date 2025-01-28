@@ -323,7 +323,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- BOTREMOVE:
-        if msg:sub(1, 11) == Prefix .. "botremove" then
+        if msg:sub(1, 10) == Prefix .. "botremove" then
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Removed Bot",
         Text = "BOT HAS BEEN REMOVED.",
