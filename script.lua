@@ -323,35 +323,54 @@ if LocalPLR.Name ~= Username then
         end
 
         -- BOTREMOVE:
-        if msg:sub(1, 10) == Prefix .. "botremove" then
+        if msg:sub(1, 11) == Prefix .. "botremove" then
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Removed Bot",
+        Text = "BOT HAS BEEN REMOVED.",
+        Time = 6
+    })
 
-            if player.Name ~= Username and not isAdmin(player.Name) then
-                return
-            end
+    if player.Name ~= Username and not isAdmin(player.Name) then
+        return
+    end
 
-            local targetIndex = tonumber(msg:sub(12))
-            if not targetIndex then
-                if index == 1 then
-                    chat("Please enter bot index to remove!")
-                end
-
-                return
-            end
-
-            table.remove(bots, targetIndex)
-            if index == targetIndex then
-                Username = ""
-                whitelist = {}
-                admins = {}
-
-                script:Destroy()
-            end
-
-            getIndex()
-            if index == 1 then
-                chat("Bot " .. targetIndex .. " has been removed!")
-            end
+    local botName = msg:sub(13):gsub("^%s*(.-)%s*$", "%1")
+    if botName == "" then
+        if index == 1 then
+            chat("Please enter the name of the bot to remove!")
         end
+        return
+    end
+
+    local botIndex = nil
+    for i, bot in ipairs(bots) do
+        if bot.Name == botName then
+            botIndex = i
+            break
+        end
+    end
+
+    if not botIndex then
+        if index == 1 then
+            chat("Bot with name '" .. botName .. "' not found!")
+        end
+        return
+    end
+
+    table.remove(bots, botIndex)
+    if index == botIndex then
+        Username = ""
+        whitelist = {}
+        admins = {}
+
+        script:Destroy()
+    end
+
+    getIndex()
+    if index == 1 then
+        chat("Bot '" .. botName .. "' has been removed!")
+    end
+end
 
         -- PRINTCMDS:
         if msg:sub(1, 10) == Prefix .. "printcmds" then
