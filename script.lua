@@ -256,10 +256,10 @@ if LocalPLR.Name ~= Username then
                 table.insert(whitelist, targetPLR)
 
                 if index == 1 then
-                    chat("Added Player To Whitelist!")
+                    chat("!!")
                 end
             elseif index == 1 then
-                chat("Player Could Not Be Found!")
+                chat("!!?")
             end
         end
 
@@ -276,7 +276,7 @@ if LocalPLR.Name ~= Username then
                     table.remove(whitelist, i)
 
                     if index == 1 then
-                        chat("Removed Player From Whitelist!")
+                        chat("-!!")
                     end
 
                 end
@@ -295,10 +295,10 @@ if LocalPLR.Name ~= Username then
                 table.insert(admins, targetPLR)
 
                 if index == 1 then
-                    chat("Added Player To Admins!")
+                    chat("!!!")
                 end
             elseif index == 1 then
-                chat("Player Could Not Be Found!")
+                chat("!!!?")
             end
         end
 
@@ -315,7 +315,7 @@ if LocalPLR.Name ~= Username then
                     table.remove(admins, i)
 
                     if index == 1 then
-                        chat("Removed Player From Admins!")
+                        chat("-!!!")
                     end
 
                 end
@@ -337,7 +337,7 @@ if LocalPLR.Name ~= Username then
     local botName = msg:sub(13):gsub("^%s*(.-)%s*$", "%1")
     if botName == "" then
         if index == 1 then
-            chat("Please enter the name of the bot to remove!")
+            chat("!!!!!!!")
         end
         return
     end
@@ -352,7 +352,7 @@ if LocalPLR.Name ~= Username then
 
     if not botIndex then
         if index == 1 then
-            chat("Bot with name '" .. botName .. "' not found!")
+            chat("!! '" .. botName .. "' !!")
         end
         return
     end
@@ -368,7 +368,7 @@ if LocalPLR.Name ~= Username then
 
     getIndex()
     if index == 1 then
-        chat("Bot '" .. botName .. "' has been removed!")
+        chat("!! '" .. botName .. "' !!")
     end
 end
 
